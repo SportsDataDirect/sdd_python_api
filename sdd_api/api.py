@@ -27,6 +27,7 @@ class Api:
             self.client_secret=client_secret
         else:
             raise ApiInitializationException("Please supply username, password, client_id, and client_secret params or pass a file")
+        self.gen_token()
 
     def gen_token(self):
         self.oauth = OAuth2Session(client=LegacyApplicationClient(client_id=self.client_id))

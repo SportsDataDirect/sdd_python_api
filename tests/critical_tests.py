@@ -14,7 +14,6 @@ import pandas as pd
 class TestConfig(unittest.TestCase):
     def test_config(self):
         api = Api(username=username, password=password, client_id=client_id, client_secret=client_secret)
-        api.gen_token()
         assert type(api.get_dataframe("team_names")), pd.DataFrame
 
 if __name__ == '__main__':

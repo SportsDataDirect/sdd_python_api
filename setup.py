@@ -10,7 +10,7 @@ elif sys.version_info <= (3,5) or sys.version_info >= (3,7):
 setup(
   name = 'sdd_api',
   packages = ['sdd_api'], # this must be the same as the name above
-  version = '0.1',
+  version = '0.1.1',
   description = 'Python API for Sports Data Direct',
   author = 'Sports Data Direct',
   author_email = 'admin@sportsdatadirect.com',
