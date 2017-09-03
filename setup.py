@@ -2,7 +2,7 @@ from distutils.core import setup
 #started with http://peterdowns.com/posts/first-time-with-pypi.html and then i switched to twine
 
 import sys
-if sys.version <= (2,7):
+if sys.version_info <= (2,7):
   sys.exit("Sorry, Python <= 2.7 is not supported")
 elif sys.version_info <= (3,5) or sys.version_info >= (3,7):
   sys.warn('Python versions besides 3.6.1 are untested')
