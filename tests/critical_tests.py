@@ -1,7 +1,7 @@
 from .context import sdd_api
 from sdd_api.api import Api
 import unittest
-from tests.credentials import *
+from tests.test_credentials import *
 import pandas as pd
 
 # class TestStringMethods(unittest.TestCase):
@@ -11,10 +11,14 @@ import pandas as pd
 #         api.gen_token()
 #         print(api.get_dataframe("team_names"))
 
+api = Api(username=username, password=password, client_id=client_id, client_secret=client_secret, server_url="https://localhost", verify=False)
 class TestConfig(unittest.TestCase):
     def test_config(self):
-        api = Api(username=username, password=password, client_id=client_id, client_secret=client_secret)
-        assert type(api.get_dataframe("team_names")), pd.DataFrame
+        df = api.get_dataframe("drives")
+        assert type(df), pd.DataFrame
+    def test_players(self):
+        df = api.get_dataframe("player_game_logs", season_start=2011)
+        print(df.sample(10))
 
 if __name__ == '__main__':
     unittest.main()
