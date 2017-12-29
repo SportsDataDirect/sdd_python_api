@@ -31,6 +31,8 @@ class Api:
             raise ApiInitializationException("Please supply username, password, client_id, and client_secret params or pass a file")
         if server_url:
             self.SERVER_URL = server_url
+        else:
+            self.SERVER_URL = SERVER_URL
         self.verify=verify
         self.gen_token()
 
@@ -49,10 +51,8 @@ class Api:
         else:
             return d
 
-    def get_dataframe(self, table_name, schema_name="nfl", season_start=2017, season_stop=None, progress_bar=False):
+    def get_dataframe(self, table_name, schema_name="nfl", season_start=2017, season_stop=2017, progress_bar=True):
         df=pd.DataFrame()
-        if season_stop is None:
-            season_stop=2017
 
         seasons=range(season_start, season_stop+1)
         if progress_bar:
