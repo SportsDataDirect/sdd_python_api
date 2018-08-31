@@ -51,7 +51,7 @@ class Api:
         else:
             return d
 
-    def get_dataframe(self, table_name, schema_name="nfl", season_start=2017, season_stop=2017, progress_bar=True):
+    def get_dataframe(self, table_name, schema_name="nfl", season_start=2017, season_stop=2018, progress_bar=True):
         df=pd.DataFrame()
 
         seasons=range(season_start, season_stop+1)
