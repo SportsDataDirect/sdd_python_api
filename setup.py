@@ -4,13 +4,13 @@ from distutils.core import setup
 import sys
 if sys.version_info <= (2,7):
   sys.exit("Sorry, Python <= 2.7 is not supported")
-elif sys.version_info <= (3,5) or sys.version_info >= (3,7):
-  sys.warn('Python versions besides 3.6.1 are untested')
+elif sys.version_info <= (3,5):
+  print('Python versions lower than 3.5 are untested')
 
 setup(
   name = 'sdd_api',
   packages = ['sdd_api'], # this must be the same as the name above
-  version = '0.2.1',
+  version = '0.2.2',
   description = 'Python API for Sports Data Direct',
   author = 'Sports Data Direct',
   author_email = 'admin@sportsdatadirect.com',
@@ -22,6 +22,6 @@ setup(
           "pandas>=0.16",
           "oauthlib==2.0.2",
           "requests-oauthlib==0.8.0",
-            "tqdm==4.19.5"
+            "tqdm>=4.19.5"
       ]
 )

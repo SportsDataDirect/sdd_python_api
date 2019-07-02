@@ -1,3 +1,5 @@
+import datetime
+
 from oauthlib.oauth2 import LegacyApplicationClient
 from requests_oauthlib import OAuth2Session
 import pandas as pd
@@ -9,6 +11,9 @@ from tqdm import tqdm
 import sys
 
 SERVER_URL="https://api.sportsdatadirect.com"
+now=datetime.datetime.now()
+#todo use DB for season start
+CURRENT_SEASON=now.year if now.month>=9 and now.day>5 else now.year-1
 class Api:
     def __init__(self,username=None, password=None, client_id=None, client_secret=None, config_file_path=None, server_url=None, verify=True):
         if config_file_path:
@@ -51,7 +56,7 @@ class Api:
         else:
             return d
 
-    def get_dataframe(self, table_name, schema_name="nfl", season_start=2017, season_stop=2017, progress_bar=True):
+    def get_dataframe(self, table_name, schema_name="nfl", season_start=CURRENT_SEASON, season_stop=CURRENT_SEASON, progress_bar=True):
         df=pd.DataFrame()
 
         seasons=range(season_start, season_stop+1)
