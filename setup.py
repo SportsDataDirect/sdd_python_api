@@ -20,7 +20,7 @@ setup(
   classifiers = [],
   install_requires=[
           "pandas>=0.16",
-          "oauthlib==2.0.2",
+          "oauthlib==4.0.0",
           "requests-oauthlib==0.8.0",
             "tqdm>=4.19.5"
       ]
